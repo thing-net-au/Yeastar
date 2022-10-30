@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net48;netstandard2.1;net6.0</TargetFrameworks>
+	<Nullable>disable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+	<LangVersion>9.0</LangVersion>
+	<SignAssembly>True</SignAssembly>
+	<Title>Basic API that exposes the sms service of a Yealink modem</Title>
+	<Company>thing.net.au</Company>
+	<PackageProjectUrl>https://thing.net.au/libraries/tlstandard</PackageProjectUrl>
+	<PackageId><Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net48;netstandard2.1;net6.0</TargetFrameworks>
+	<Nullable>disable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+	<LangVersion>9.0</LangVersion>
+	<SignAssembly>True</SignAssembly>
+	<Title>Types and Objects for extending Translogix into SQLServer</Title>
+	<Company>thing.net.au</Company>
+	<PackageProjectUrl>https://thing.net.au/libraries/yealink</PackageProjectUrl>
+	<PackageId>ThingNetAU.YeastarAPI</PackageId>
+	<Description>This library aims to increase the functionality of Translogix.</Description>
+	<Copyright>thing.net.au</Copyright>
+	<RepositoryType>git</RepositoryType>
+	<RepositoryUrl>https://github.com/thing-net-au/TranslogixTypes</RepositoryUrl>
+	<AssemblyVersion>1.0.1.9</AssemblyVersion>
+	<FileVersion>1.0.1.9</FileVersion>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<PackageLicenseExpression>CC-BY-4.0</PackageLicenseExpression>
+	<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+	<GenerateDocumentationFile>False</GenerateDocumentationFile>
+	<Version>1.0.9</Version>
+	<AssemblyOriginatorKeyFile>C:\Users\scott\source\repos\thingnetau.snk</AssemblyOriginatorKeyFile>
+	<RootNamespace>ThingNetAU.YeastarAPI.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<AssemblyOriginatorKeyFile>..\thingnetau.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
+	<Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
+	<Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+	<Optimize>False</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+	<PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
+	<PackageReference Include="TLLibraryStandard" Version="1.0.9" />
+  </ItemGroup></PackageId>
+	<Description>This library aims to increase the functionality of Translogix.</Description>
+	<Copyright>thing.net.au</Copyright>
+	<RepositoryType>git</RepositoryType>
+	<RepositoryUrl>https://github.com/thing-net-au/TranslogixTypes</RepositoryUrl>
+	<AssemblyVersion>1.0..0.0</AssemblyVersion>
+	<FileVersion>1.0.0.0</FileVersion>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<PackageLicenseExpression>CC-BY-4.0</PackageLicenseExpression>
+	<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+	<GenerateDocumentationFile>False</GenerateDocumentationFile>
+	<Version>1.0.9</Version>
+	<AssemblyOriginatorKeyFile>C:\Users\scott\source\repos\thingnetau.snk</AssemblyOriginatorKeyFile>
+	<RootNamespace>ThingNetAU.TLLib.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<AssemblyOriginatorKeyFile>..\thingnetau.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
+	<Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
+	<Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+	<Optimize>False</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+	<PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
+	<PackageReference Include="TLLibraryStandard" Version="1.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SimpleTCP.Core" Version="1.0.4" />
+  </ItemGroup>
+
+</Project>
