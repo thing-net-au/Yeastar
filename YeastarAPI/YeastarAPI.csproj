@@ -6,11 +6,11 @@
   <PropertyGroup>
 	<LangVersion>9.0</LangVersion>
 	<SignAssembly>True</SignAssembly>
-	<Title>Types and Objects for extending Translogix into SQLServer</Title>
+	<Title>This library implements the basic sms send functions.</Title>
 	<Company>thing.net.au</Company>
 	<PackageProjectUrl>https://thing.net.au/libraries/yealink</PackageProjectUrl>
 	<PackageId>ThingNetAU.YeastarAPI</PackageId>
-	<Description>This library ipplements the basic sms send functions.</Description>
+	<Description>This library implements the basic sms send functions.</Description>
 	<Copyright>thing.net.au</Copyright>
 	<RepositoryType>git</RepositoryType>
 	<RepositoryUrl>https://github.com/thing-net-au/Yeastar</RepositoryUrl>
