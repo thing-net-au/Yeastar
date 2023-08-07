@@ -29,9 +29,9 @@ namespace ThingNetAU.YeastarAPI
             if (SshClient.IsConnected)
             {
                 //var command = SshClient.CreateCommand("asterisk -r");
-               // string commandOutput = command.Execute();
-               // Console.WriteLine("Command output: \n" + commandOutput);
-               // LogCommandOutput(commandOutput);
+                // string commandOutput = command.Execute();
+                // Console.WriteLine("Command output: \n" + commandOutput);
+                // LogCommandOutput(commandOutput);
             }
         }
         public void SetPhoneDivert(GSMPort port, FwdReason reason, FwdMode mode, FwdType type, string number)
@@ -59,18 +59,53 @@ namespace ThingNetAU.YeastarAPI
             var command = SshClient.CreateCommand(string.Format("asterisk -rx \"gsm send at {0} AT+CCFC=0,2,,,3\"", (int)port));
             string commandOutput = command.Execute();
             LogCommandOutput(commandOutput);
+        }
+        public string GetLastMessages()
+        {
+            var command = SshClient.CreateCommand(string.Format("cat /var/log/yslog/gateway"));
+            string commandOutput = command.Execute();
+            LogCommandOutput(commandOutput);
+            return commandOutput;
+        }
+        public List<SmsEntry> GetSmsEntries()
+        {
+            string allLogs = GetLastMessages();
+            //ClearLastMessages();
+            string[] logEntries = allLogs.Split(new string[] { "[202" }, StringSplitOptions.None);
 
-                     //  return commandOutput;
+            List<SmsEntry> smsEntries = new List<SmsEntry>();
+
+            foreach (string entry in logEntries)
+            {
+                string logEntry = "[202" + entry;
+                // Check if the log entry is not empty or whitespace and contains all required fields
+
+                if (!string.IsNullOrWhiteSpace(logEntry) &&
+                    logEntry.Contains("sender=") &&
+                    logEntry.Contains("header=") &&
+                    logEntry.Contains("pdu=") &&
+                    logEntry.Contains("text="))
+                {
+                    smsEntries.Add(new SmsEntry(logEntry));
+                }
+            }
+            return smsEntries;
+
 
         }
+        public void ClearLastMessages()
+        {
+            SshClient.RunCommand("echo \"\" > /var/log/yslog/gateway");
+        }
+
         private string SendATCommand()
         {// gsm send at 3 AT+CCFC=0,2,,,3 
             var command = SshClient.CreateCommand("");
             string commandOutput = command.Execute();
             LogCommandOutput(commandOutput);
-            if(commandOutput != "Asterisk -rx ")
+            if (commandOutput != "Asterisk -rx ")
             {
-                
+
             }
             return commandOutput;
         }
@@ -86,7 +121,7 @@ namespace ThingNetAU.YeastarAPI
     public enum FwdReason { unconditional, mobilebusy, noreply, notreachable, allcallforward, allconditionalcall }
     public enum FwdMode { disable, enable, query, register, erase }
     public enum FwdType { otherwise = 129, incicc = 145 }
-public enum GSMPort { Port1 = 2, Port2 = 3, Port3 = 4, port4 = 5, Port5 = 6, Port6 = 7, Port7 = 8, port8 = 9 }
+    public enum GSMPort { Port1 = 2, Port2 = 3, Port3 = 4, port4 = 5, Port5 = 6, Port6 = 7, Port7 = 8, port8 = 9 }
 
     public class ObservableStringArray
     {

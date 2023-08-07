@@ -14,13 +14,13 @@
 	<Copyright>thing.net.au</Copyright>
 	<RepositoryType>git</RepositoryType>
 	<RepositoryUrl>https://github.com/thing-net-au/Yeastar</RepositoryUrl>
-	<AssemblyVersion>1.1.10</AssemblyVersion>
-	<FileVersion>$(AssemblyVersion)</FileVersion>
+	<AssemblyVersion>1.1.4</AssemblyVersion>
+	<FileVersion>1.1.3</FileVersion>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
 	<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
 	<GenerateDocumentationFile>False</GenerateDocumentationFile>
-	<Version>$(AssemblyVersion)</Version>
+	<Version>1.1.3</Version>
 	<AssemblyOriginatorKeyFile>C:\Users\scott\source\repos\thingnetau.snk</AssemblyOriginatorKeyFile>
 	<RootNamespace>ThingNetAU.YeastarAPI.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
@@ -40,8 +40,5 @@
 	<PackageReference Include="SimpleTCP.Core" Version="1.0.4" />
 	<PackageReference Include="SSH.NET" Version="2020.0.2" />
   </ItemGroup>
-  <Target Name="CopyPackage" AfterTargets="Pack">
-	<Exec Command="nuget add $(OutputPath)$(PackageId).$(PackageVersion).nupkg -source s:\Nuget" />
-  </Target>
 
 </Project>

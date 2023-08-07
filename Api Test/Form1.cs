@@ -1,3 +1,4 @@
+using System.Diagnostics.Eventing.Reader;
 using ThingNetAU.YeastarAPI;
 namespace Api_Test
 {
@@ -66,10 +67,41 @@ namespace Api_Test
 
         private void button3_Click(object sender, EventArgs e)
         {
-            for (int i = 1; i < 100; i++)
+            for (int i = 0; i < 1; i++)
             {
-                sshService.SendTextMessage(getPort(comboBox1.Text), textBox2.Text, string.Format("{0} {1}",i,textBox3.Text));
+                sshService.SendTextMessage(getPort(comboBox1.Text), textBox2.Text, string.Format("{0} {1}", i, textBox3.Text));
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            string allLogs =  sshService.GetLastMessages();
+            string[] logEntries = allLogs.Split(new string[] { "[202" }, StringSplitOptions.None);
+
+            List<SmsEntry> smsEntries = new List<SmsEntry>();
+
+            foreach (string entry in logEntries)
+            {
+                string logEntry = "[202" + entry;
+                // Check if the log entry is not empty or whitespace and contains all required fields
+                 
+                if (!string.IsNullOrWhiteSpace(logEntry) &&
+                    logEntry.Contains("sender=") &&
+                    logEntry.Contains("header=") &&
+                    logEntry.Contains("pdu=") &&
+                    logEntry.Contains("text="))
+                {
+                    smsEntries.Add(new SmsEntry(logEntry));
+                }
+            }
+
+            foreach (var entry in smsEntries)
+            {
+                Console.WriteLine(entry.Text);
+            }
+
+
         }
     }
 }
